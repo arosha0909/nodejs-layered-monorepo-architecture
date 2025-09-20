@@ -1,0 +1,21 @@
+{
+  "name": "@libraries/authenticator",
+  "version": "1.0.0",
+  "description": "JWT authentication library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3"
+  }
+}

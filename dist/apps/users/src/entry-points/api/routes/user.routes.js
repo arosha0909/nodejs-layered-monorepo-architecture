@@ -1,0 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const user_controller_1 = require("../controllers/user.controller");
+const middleware_1 = require("@shared/middleware");
+const router = (0, express_1.Router)();
+const userController = new user_controller_1.UserController();
+router.post('/register', userController.register);
+router.post('/login', userController.login);
+router.use(middleware_1.authenticate);
+router.get('/profile', userController.getProfile);
+router.put('/profile', userController.updateProfile);
+router.put('/change-password', userController.changePassword);
+router.patch('/deactivate', userController.deactivateAccount);
+router.use((0, middleware_1.authorize)('admin'));
+router.get('/', userController.getUsers);
+router.get('/stats', userController.getUserStats);
+router.get('/:userId', userController.getUserById);
+router.put('/:userId', userController.updateUser);
+exports.default = router;
+//# sourceMappingURL=user.routes.js.map
